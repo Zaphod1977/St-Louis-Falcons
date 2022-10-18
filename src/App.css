@@ -1,0 +1,74 @@
+@font-face {
+  src: url(./assets/fonts/CormorantGaramond-Regular.ttf);
+  font-family: cor;
+}
+
+html {
+  height: 100vh;
+  background-color: black;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  z-index: 10;
+  margin-top: 4em;
+  height: 60vmin;
+  animation: fadout 2s forwards;
+  animation-delay: 3s;  
+}
+
+@keyframes fadout {
+  from{opacity: 100%}
+  to{opacity: 0%;
+  display: none;
+  z-index: 0;}
+}
+
+.loginLink {
+  margin-top: -6em;
+  animation: fadein 15s forwards;
+}
+
+@keyframes fadein {
+  from{opacity: 0%}
+  to{opacity: 100%;
+    z-index: 11}
+}
+
+.App-icon {
+  background-color: black;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  font-size: 2em;
+  font-family: cor;
+  color: white;
+  text-decoration: none;
+}
+
+.next {
+  font-size: 1.5em;
+  margin-top: 7vh;
+  font-family: cor;
+  color: white;
+  text-decoration: none;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
