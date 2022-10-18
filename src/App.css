@@ -14,7 +14,7 @@ html {
 
 .App-logo {
   z-index: 10;
-  margin-top: 4em;
+  margin-top: 1.5em;
   height: 60vmin;
   animation: fadout 2s forwards;
   animation-delay: 3s;  

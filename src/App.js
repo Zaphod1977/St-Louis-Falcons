@@ -30,8 +30,8 @@ setCurrentPage={setCurrentPage}
 
   const switchPage = (page) => {
     switch (page) {
-      case "Home":
-        return <Home />;
+      case "Land":
+        return <Land />;
       case "Facility":
         return <Facility />;
       case "Nation":
@@ -40,8 +40,8 @@ setCurrentPage={setCurrentPage}
         return <Roster />;
       case "Calendar":
         return <Calendar />;
-      case "Land":
-        return <Land />
+      case "Home":
+        return <Home />
       default:
         return <Land />;
     };
@@ -50,7 +50,7 @@ setCurrentPage={setCurrentPage}
   return (
     <div className='wrapper'>
       {header}
-      <div className="hero">
+      <div>
       </div>
       <main>{switchPage(currentPage)}</main>
       {footer}

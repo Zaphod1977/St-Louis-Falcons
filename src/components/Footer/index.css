@@ -1,0 +1,25 @@
+@font-face {
+    src: url(../../assets/fonts/CormorantGaramond-Regular.ttf);
+    font-family: cor;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cor;
+}
+
+/* apply styles to <header> */
+#con {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 55px 20px 35px;
+    background-color: gray;
+    position: sticky;
+    top: 0px;
+    z-index: 50;
+    font-size: 1.2em;
+}
