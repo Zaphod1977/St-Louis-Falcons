@@ -7,6 +7,7 @@ import Home from './Home.js'
 function Land() {
   return (
     <div className="App">
+      <Nav></Nav>
       <header className="App-icon">
         <img src={falcon} className="App-logo" alt="logo" />
         <div class="loginLink"><a
@@ -19,6 +20,7 @@ function Land() {
           ENTER
         </a>
       </header>
+      <Footer></Footer>
     </div>
   );
 }

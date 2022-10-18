@@ -8,6 +8,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: cor;
+    max-width: 100%;
 }
 
 /* apply styles to <header> */
@@ -22,4 +23,21 @@
     top: 0px;
     z-index: 50;
     font-size: 1.2em;
+}
+
+@media only screen and (max-height: 844px) {
+
+    html {
+        viewport-fit: 100%;
+    }
+
+    #con {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.4em;
+        background-color: gray;
+        z-index: 50;
+        font-size: .95em;        
+    }
+
 }

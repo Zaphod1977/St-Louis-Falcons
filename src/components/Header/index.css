@@ -40,3 +40,20 @@ header {
 ul {
     list-style-type: none;
 }
+
+/* start media query here -  tablet devices */
+@media only screen and (max-width: 390px) {
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        padding: 1em;
+        background-color: gray;
+        z-index: 50;
+        font-size: .95em;        
+    }
+
+    .banner a {
+        margin-right: .5em;
+    }
+}
