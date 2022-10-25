@@ -1,4 +1,5 @@
 const User = require('../models/user.js');
+const bcrypt = require("bcryptjs");
 
 const userController = {
     // get all users
@@ -24,6 +25,7 @@ const userController = {
 
     // createUser
     createUser({ body }, res) {
+        body.password = bcrypt.hashSync(body.password, 8)
         User.create(body)
             .then(dbUserData => res.json(dbUserData))
             .catch(err => res.json(err));
@@ -43,6 +45,41 @@ const userController = {
                 res.json(dbUserData);
             })
             .catch(err => res.json(err));
+    },
+
+    // sign-in User
+    signInUser({ body }, res) {
+        User.findOne({ username: body.username })
+            .exec((err, user) => {
+                if (err) {
+                    res.status(500).send({ message: err });
+                    return;
+                }
+
+                if (!user) {
+                    return res.status(404).send({ message: "User Not found." });
+                }
+                var passwordIsValid = bcrypt.compareSync(
+                    body.password,
+                    user.password
+                );
+
+                if (!passwordIsValid) {
+                    return res.status(401).send({
+                        accessToken: null,
+                        message: "Invalid Password!"
+                    });
+                }
+                var token = jwt.sign({ id: user.id }, config.secret, {
+                    expiresIn: 3600 // 1 hour
+                });
+                res.status(200).send({
+                    id: user._id,
+                    username: user.username,
+                    email: user.email,
+                    accessToken: token
+                  });
+            })
     },
 
     // delete User

@@ -6,12 +6,17 @@ const {
   createUser,
   updateUser,
   deleteUser,
-} = require('../../controllers/hhs_users_controller.js');
+  signInUser,
+} = require('../../controllers/users_controller.js');
 
 // /api/users
 router
   .route('/')
   .get(getAllUser)
+  .post(signInUser);
+
+  // /api/users/create
+router.route('create')
   .post(createUser);
 
 // /api/users/:id
@@ -22,9 +27,3 @@ router
   .delete(deleteUser);
 
 module.exports = router;
-
-
-
-
-// "_id": "631152c4d56bf5392b683e3b"
-// "_id": "631152c4d56bf5392b683e3d"
