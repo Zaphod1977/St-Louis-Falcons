@@ -16,7 +16,7 @@ function Land(props) {
         >St. Louis Falcons</a></div>
         <a
           className="next"
-          href="#Home" onClick={() => setCurrentPage("Home")}
+          href="#Login" onClick={() => setCurrentPage("Login")}
         >
           ENTER
         </a>

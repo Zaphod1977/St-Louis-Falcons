@@ -16,7 +16,7 @@ router
   .post(signInUser);
 
   // /api/users/create
-router.route('create')
+router.route('/create')
   .post(createUser);
 
 // /api/users/:id

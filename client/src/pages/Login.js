@@ -4,6 +4,8 @@ import Auth from '../utils/auth';
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
 
+  let error = false
+
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -19,13 +21,14 @@ const handleFormSubmit = async event => {
   event.preventDefault();
 
   try {
-    const { data } = await login({
-      variables: { ...formState }
-    });
-
-    Auth.login(data.login.token);
+    const data = await fetch( "/api/users", {
+      method: 'POST',
+      body: JSON.stringify(formState)
+    } )
+    
+    Auth.login(data.accessToken);
   } catch (e) {
-    console.error(e);
+    error=true;
   }
 };
 

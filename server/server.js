@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const db = require('./config/connection.js');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,11 +22,17 @@ app.use(function (req, res, next) {
 }); 
 app.use(require('./routes/router.js'));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
+
+db.once('open', () => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`);
+    })
+  })
 
 mongoose.set('debug', true);
 
-app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
+// app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
