@@ -7,9 +7,6 @@ import Land from './Land';
 function Home() {
   return (
     <div className="App">
-      <Nav></Nav>
-      <header className="App-icon">
-        <img src={falcon} className="App-logo" alt="logo" />
         <div class="loginLink"><a
           className="App-link"
         >St. Louis Falcons</a></div>
@@ -19,8 +16,6 @@ function Home() {
         >
           Home
         </a>
-      </header>
-      <Footer></Footer>
     </div>
   );
 }

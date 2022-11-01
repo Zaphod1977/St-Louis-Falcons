@@ -3,9 +3,25 @@
   font-family: cor;
 }
 
-html {
+html, .wrapper, body, #root {
   height: 100vh;
   background-color: black;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.land-wrap {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .App {
