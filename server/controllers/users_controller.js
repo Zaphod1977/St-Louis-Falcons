@@ -1,4 +1,5 @@
 const User = require('../models/user.js');
+const signUpCode = require('../models/sign_up_code.js')
 const bcrypt = require("bcryptjs");
 
 const userController = {
@@ -25,9 +26,16 @@ const userController = {
 
     // createUser
     createUser({ body }, res) {
-        body.password = bcrypt.hashSync(body.password, 8)
-        User.create(body)
-            .then(dbUserData => res.json(dbUserData))
+        console.log(body);
+        signUpCode.findOne({ code: body.signUpCode })
+            .then(foundCode => {
+                if (foundCode) {
+                    body.password = bcrypt.hashSync(body.password, 8)
+                    User.create(body)
+                        .then(dbUserData => res.json(dbUserData))
+                        .catch(err => res.json(err));
+                }
+            })
             .catch(err => res.json(err));
     },
 
@@ -49,7 +57,7 @@ const userController = {
 
     // sign-in User
     signInUser({ body }, res) {
-        User.findOne({ username: body.username })
+        User.findOne({ email: body.email })
             .exec((err, user) => {
                 if (err) {
                     res.status(500).send({ message: err });
@@ -75,10 +83,9 @@ const userController = {
                 });
                 res.status(200).send({
                     id: user._id,
-                    username: user.username,
                     email: user.email,
                     accessToken: token
-                  });
+                });
             })
     },
 
