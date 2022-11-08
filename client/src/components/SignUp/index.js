@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Auth from '../../utils/auth.js';
 
-const Login = (props) => {
+const SignUp = (props) => {
     const [formState, setFormState] = useState({ email: '', password: '' });
   
     let error = false
@@ -69,4 +69,4 @@ const Login = (props) => {
     );
   };
 
-  export default Login;
+  export default SignUp;

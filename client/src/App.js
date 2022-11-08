@@ -7,10 +7,7 @@ import Calendar from './pages/Calendar.js';
 import Footer from './components/Footer';
 import Land from "./pages/Land"
 import Header from "./components/Header";
-import Login from './pages/Login.js';
-
-// const Login = (props) => {
-//   const [formState, setFormState] = useState({ email: '', password: '' });
+import User from './pages/User.js';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(
@@ -18,13 +15,13 @@ function App() {
   );
 
   // ternary opperator for the to render Land w/o nav 
-  const header = currentPage == "Land" ? "" : <Header
+  const header = currentPage == "Land" || "User" ? "" : <Header
     currentPage={currentPage}
     setCurrentPage={setCurrentPage}
   ></Header>
 
   // ternary opperator for the to render Land w/o nav 
-  const footer = currentPage == "Land" ? "" : <Footer
+  const footer = currentPage == "Land" || "User" ? "" : <Footer
     currentPage={currentPage}
     setCurrentPage={setCurrentPage}
   ></Footer>
@@ -34,8 +31,8 @@ function App() {
       case "Land":
         return <Land  currentPage={currentPage}
                       setCurrentPage={setCurrentPage} />;
-      case "Login":
-        return <Login />;
+      case "User":
+        return <User/>;
       case "Facility":
         return <Facility />;
       case "Nation":
