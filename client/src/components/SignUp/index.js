@@ -21,7 +21,7 @@ const SignUp = (props) => {
         event.preventDefault();
 
         try {
-            const data = await fetch("/api/users/create", {
+            const data = await fetch("http://localhost:3001/api/users/create", {
                 method: 'POST',
                 body: JSON.stringify(formState)
             })
