@@ -27,7 +27,7 @@ const userController = {
     // createUser
     createUser({ body }, res) {
         console.log(body);
-        signUpCode.findOne({ code: body.signUpCode })
+        signUpCode.findOne({ sCode: body.signUpCode })
             .then(foundCode => {
                 if (foundCode) {
                     body.password = bcrypt.hashSync(body.password, 8)

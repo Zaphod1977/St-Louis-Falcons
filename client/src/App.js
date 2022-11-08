@@ -29,10 +29,10 @@ function App() {
   const switchPage = (page) => {
     switch (page) {
       case "Land":
-        return <Land  currentPage={currentPage}
-                      setCurrentPage={setCurrentPage} />;
+        return <Land currentPage={currentPage}
+          setCurrentPage={setCurrentPage} />;
       case "User":
-        return <User/>;
+        return <User setCurrentPage={setCurrentPage} />;
       case "Facility":
         return <Facility />;
       case "Nation":
@@ -42,11 +42,11 @@ function App() {
       case "Calendar":
         return <Calendar />;
       case "Home":
-        return <Home  currentPage={currentPage}
-                      setCurrentPage={setCurrentPage} />
+        return <Home currentPage={currentPage}
+          setCurrentPage={setCurrentPage} />
       default:
-        return <Land  currentPage={currentPage}
-                      setCurrentPage={setCurrentPage} />;
+        return <Land currentPage={currentPage}
+          setCurrentPage={setCurrentPage} />;
     };
   }
 

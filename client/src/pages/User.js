@@ -7,9 +7,12 @@ const User = (props) => {
     "Login"
   );
 
-  const form = currentForm == "Login" ? <Login /> : <SignUp />
+  const form = currentForm == "Login" ?
+    <Login setCurrentPage={props.setCurrentPage} /> : 
+    <SignUp setCurrentPage={props.setCurrentPage} />
+    
   const buttonText = currentForm == "Login" ? "New User" : "Return"
-  
+
   const handleClick = () => {
     currentForm == "Login" ? setCurrentForm("SignUp") : setCurrentForm("Login")
   }

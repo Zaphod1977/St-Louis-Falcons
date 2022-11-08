@@ -22,11 +22,6 @@ app.use(function (req, res, next) {
 }); 
 app.use(require('./routes/router.js'));
 
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// });
-
 db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
@@ -34,5 +29,3 @@ db.once('open', () => {
   })
 
 mongoose.set('debug', true);
-
-// app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));

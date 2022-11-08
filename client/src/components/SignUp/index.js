@@ -26,7 +26,7 @@ const SignUp = (props) => {
                 body: JSON.stringify(formState)
             })
 
-            // Auth.login(data.accessToken);
+            Auth.login(data.accessToken, props.setCurrentPage);
         } catch (e) {
             error = true;
         }
