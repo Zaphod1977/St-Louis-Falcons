@@ -38,6 +38,7 @@ class AuthService {
     login(idToken, pageSetter) {
       // Saves user token to localStorage
       localStorage.setItem('id_token', idToken);
+      console.log(pageSetter);
       pageSetter("Home");
       // window.location.assign('/');
     }

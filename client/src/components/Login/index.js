@@ -27,7 +27,8 @@ const Login = (props) => {
                 headers: { "Content-Type": "application/json" }
             })
 
-            Auth.login(data.accessToken, props.setCurrentPage);
+            Auth.login(data.accessToken);
+            props.setCurrentPage("Home");
         } catch (e) {
             error = true;
         }

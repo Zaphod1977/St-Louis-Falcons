@@ -1,6 +1,8 @@
 const User = require('../models/user.js');
-const signUpCode = require('../models/sign_up_code.js')
+const signUpCode = require('../models/sign_up_code.js');
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const config = require('../config/auth.js');
 
 const userController = {
     // get all users
@@ -26,13 +28,13 @@ const userController = {
 
     // createUser
     createUser({ body }, res) {
-        console.log("inside create user");
-        console.log(body);
         signUpCode.findOne({ sCode: body.signUpCode })
             .then(foundCode => {
                 if (foundCode) {
                     body.password = bcrypt.hashSync(body.password, 8)
-                    User.create(body)
+                    const newUser = new User(body)
+                    newUser.save()
+                    // User.create(body)
                         .then(dbUserData => res.json(dbUserData))
                         .catch(err => res.json(err));
                 }
