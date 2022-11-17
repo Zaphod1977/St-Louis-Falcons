@@ -26,6 +26,7 @@ const userController = {
 
     // createUser
     createUser({ body }, res) {
+        console.log("inside create user");
         console.log(body);
         signUpCode.findOne({ sCode: body.signUpCode })
             .then(foundCode => {
@@ -67,11 +68,13 @@ const userController = {
                 if (!user) {
                     return res.status(404).send({ message: "User Not found." });
                 }
+                console.log(body);
+                console.log(user);
                 var passwordIsValid = bcrypt.compareSync(
                     body.password,
                     user.password
                 );
-
+                console.log(passwordIsValid);
                 if (!passwordIsValid) {
                     return res.status(401).send({
                         accessToken: null,

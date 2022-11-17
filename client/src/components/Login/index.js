@@ -21,9 +21,10 @@ const Login = (props) => {
         event.preventDefault();
 
         try {
-            const data = await fetch("/api/users", {
+            const data = await fetch("http://localhost:3001/api/users", {
                 method: 'POST',
-                body: JSON.stringify(formState)
+                body: JSON.stringify(formState),
+                headers: { "Content-Type": "application/json" }
             })
 
             Auth.login(data.accessToken, props.setCurrentPage);

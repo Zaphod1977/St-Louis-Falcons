@@ -19,11 +19,12 @@ const SignUp = (props) => {
     // submit form
     const handleFormSubmit = async event => {
         event.preventDefault();
-
+        console.log(formState);
         try {
             const data = await fetch("http://localhost:3001/api/users/create", {
                 method: 'POST',
-                body: JSON.stringify(formState)
+                body: JSON.stringify(formState),
+                headers: { "Content-Type": "application/json" }
             })
 
             Auth.login(data.accessToken, props.setCurrentPage);
@@ -47,7 +48,7 @@ const SignUp = (props) => {
                 />
                 <input
                     className='form-input'
-                    placeholder='******'
+                    placeholder='password'
                     name='password'
                     type='password'
                     id='password'
@@ -56,7 +57,7 @@ const SignUp = (props) => {
                 />
                 <input
                     className='form-input'
-                    placeholder='******'
+                    placeholder='falcon code'
                     name='signUpCode'
                     type='password'
                     id='signUpCode'
