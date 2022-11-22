@@ -10,12 +10,9 @@ function Home() {
         <div class="loginLink"><a
           className="App-link"
         >St. Louis Falcons</a></div>
-        <a
-          className="next"
-          href={Land}
-        >
+        <p>
           Home
-        </a>
+        </p>
     </div>
   );
 }

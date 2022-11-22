@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Home from './pages/Home.js';
 import Facility from './pages/Facility.js';
 import Nation from './pages/Nation.js';
@@ -14,19 +14,24 @@ function App() {
     "Land"
   );
 
+  useEffect(() => {
+    console.log(currentPage)
+  }, [currentPage]);
+
   // ternary opperator for the to render Land w/o nav 
-  const header = currentPage == "Land" || "User" ? "" : <Header
+  const header = currentPage == "Land" || currentPage == "User" ? "" : <Header
     currentPage={currentPage}
     setCurrentPage={setCurrentPage}
   ></Header>
 
   // ternary opperator for the to render Land w/o nav 
-  const footer = currentPage == "Land" || "User" ? "" : <Footer
+  const footer = currentPage == "Land" || currentPage == "User" ? "" : <Footer
     currentPage={currentPage}
     setCurrentPage={setCurrentPage}
   ></Footer>
 
   const switchPage = (page) => {
+    console.log("setPageTo", currentPage);
     switch (page) {
       case "Land":
         return <Land currentPage={currentPage}
