@@ -47,6 +47,7 @@ const Login = (props) => {
                     value={formState.email}
                     onChange={handleChange}
                 />
+                <br/>
                 <input
                     className='form-input'
                     placeholder='******'

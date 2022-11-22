@@ -46,6 +46,7 @@ const SignUp = (props) => {
                     value={formState.email}
                     onChange={handleChange}
                 />
+                <br />
                 <input
                     className='form-input'
                     placeholder='password'
@@ -55,6 +56,7 @@ const SignUp = (props) => {
                     value={formState.password}
                     onChange={handleChange}
                 />
+                <br />
                 <input
                     className='form-input'
                     placeholder='falcon code'

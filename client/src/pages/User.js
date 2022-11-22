@@ -18,8 +18,9 @@ const User = (props) => {
   }
 
   return (
-    <div className=''>
+    <div className='centered'>
       {form}
+      <br/>
       <button onClick={handleClick}>{buttonText}</button>
     </div>
   );
