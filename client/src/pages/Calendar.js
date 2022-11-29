@@ -1,17 +1,21 @@
 import '../App.css';
-// import * as dotenv from 'dotenv';
-// dotenv.config();
+import {useState} from 'react';
 
 function Calendar() {
-    console.log("is this working");
-    let calendarData;
-    async function getCalendar() {
-    calendarData = await fetch("http://localhost:3001/api/groupmekey/calendar")}
-    getCalendar();
+  const [calendarData, setcalendardata] = useState([]);
+  async function getCalendar() {
+    const serverData = await (await fetch("http://localhost:3001/api/groupmekey/calendar")).json();
+    setcalendardata(serverData.events.map(ev => 
+      <p>{ev.name}</p>
+    ))
+  }
+  getCalendar();
+
+
 
   return (
     <div className="App">
-    {calendarData}
+      {calendarData}
     </div>
   );
 }

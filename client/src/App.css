@@ -6,6 +6,7 @@
 html, .wrapper, body, #root {
   height: 100vh;
   background-color: black;
+  color: white;
 }
 
 .wrapper {

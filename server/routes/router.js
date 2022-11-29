@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const apiUserRoutes = require('./api-router/user-routes.js');
-const assignCode = require('../models/sign_up_code.js')
+const assignCode = require('../models/sign_up_code.js');
+const axios = require ('axios');
+require('dotenv').config();
 
 router.route('/api/sCode/ZaphodBobbybrox')
   .post(
@@ -21,12 +23,10 @@ router.route('/api/sCode/ZaphodBobbybrox')
 
   router.route('/api/groupmekey/calendar')
     .get(async (req, res) => {
-      console.log("calendar route");
-      const apiResponse = await fetch("https://api.groupme.com/v3/conversations/63576054/events/list", {
+      const apiResponse = await axios.get("https://api.groupme.com/v3/conversations/63576054/events/list", {
         headers: { 'X-Access-Token': process.env.ACCESSTOKEN }
       })
-      console.log(apiResponse);
-      res.json(apiResponse)
+      res.send(JSON.stringify(apiResponse.data.response))
     });
     
 router.use('/api/users', apiUserRoutes);
