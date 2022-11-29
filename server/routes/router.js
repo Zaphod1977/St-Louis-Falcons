@@ -28,6 +28,14 @@ router.route('/api/sCode/ZaphodBobbybrox')
       })
       res.send(JSON.stringify(apiResponse.data.response))
     });
+
+    router.route('/api/groupmekey/roster')
+    .get(async (req, res) => {
+      const apiResponse = await axios.get("https://api.groupme.com/v3/groups/63576054", {
+        headers: { 'X-Access-Token': process.env.ACCESSTOKEN }
+      })
+      res.send(JSON.stringify(apiResponse.data.response))
+    });
     
 router.use('/api/users', apiUserRoutes);
 

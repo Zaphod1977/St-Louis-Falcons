@@ -14,7 +14,7 @@ function Nav(props) {
   return (
     <header>
       <h2>
-        <a data-testid="link" href="/">
+        <a data-testid="link" href="#Home" onClick={() => setCurrentPage("Home")}>
           <span role="img" aria-label="camera"></span>Saint Louis Falcons
         </a>
       </h2>

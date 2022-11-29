@@ -15,7 +15,7 @@ function App() {
   );
 
   useEffect(() => {
-    console.log(currentPage)
+    console.log("current page is", currentPage)
   }, [currentPage]);
 
   // ternary opperator for the to render Land w/o nav 
@@ -31,7 +31,6 @@ function App() {
   ></Footer>
 
   const switchPage = (page) => {
-    console.log("setPageTo", currentPage);
     switch (page) {
       case "Land":
         return <Land currentPage={currentPage}
