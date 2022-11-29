@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/Zaphod1977/St-Louis-Falcons#readme",
   "dependencies": {
-    "concurrently": "^7.5.0"
+    "concurrently": "^7.5.0",
+    "dotenv": "^16.0.3"
   }
 }

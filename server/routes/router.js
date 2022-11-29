@@ -19,10 +19,21 @@ router.route('/api/sCode/ZaphodBobbybrox')
       })
   });
 
+  router.route('/api/groupmekey/calendar')
+    .get(async (req, res) => {
+      console.log("calendar route");
+      const apiResponse = await fetch("https://api.groupme.com/v3/conversations/63576054/events/list", {
+        headers: { 'X-Access-Token': process.env.ACCESSTOKEN }
+      })
+      console.log(apiResponse);
+      res.json(apiResponse)
+    });
+    
 router.use('/api/users', apiUserRoutes);
 
 router.use((req, res) => {
   res.status(404).send('<h1>404 Error!</h1>');
 });
+
 
 module.exports = router;

@@ -1,18 +1,19 @@
-// import '../App.css';
-// import calendar from 'https://cdn.shopify.com/s/files/1/0531/3327/9426/products/cd2f3gleg5kr6gt8etk0_mk4_938x938.jpg?v=1665560266'
-// import Nav from '../components/Header';
-// import Footer from '../components/Footer';
+import '../App.css';
+// import * as dotenv from 'dotenv';
+// dotenv.config();
 
-// function Calendar() {
-//   return (
-//     <div className="App">
-//       <Nav></Nav>
-//       <header className="cal">
-//         <img src={calendar} className="calStyle"/>
-//       </header>
-//       <Footer></Footer>
-//     </div>
-//   );
-// }
+function Calendar() {
+    console.log("is this working");
+    let calendarData;
+    async function getCalendar() {
+    calendarData = await fetch("http://localhost:3001/api/groupmekey/calendar")}
+    getCalendar();
 
-// export default Calendar;
+  return (
+    <div className="App">
+    {calendarData}
+    </div>
+  );
+}
+
+export default Calendar;
